@@ -10,7 +10,7 @@ def main():
     
     # Load model & data
     # model = mujoco.MjModel.from_xml_path("meshes/lego_hand/lego_hand.xml")
-    model = mujoco.MjModel.from_xml_path("../assets/descriptions/DropCubeInBinEnv.xml")
+    model = mujoco.MjModel.from_xml_path("/Users/keter/simulation/assets/descriptions/DropCubeInBinEnv.xml")
     data = mujoco.MjData(model)
     
     # Initialize with default XML values

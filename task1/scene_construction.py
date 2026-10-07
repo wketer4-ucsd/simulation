@@ -11,5 +11,5 @@ from utils import render
 
 
 # Add the desired objects into the xml file. Fix the camera viewing angle inside of the xml to get a good view of the scene.
-xml_file = os.path.abspath("../assets/descriptions/DropCubeInBinEnv.xml")
+xml_file = os.path.abspath("../../assets/descriptions/DropCubeInBinEnv.xml")
 render(xml_file, camera_name="fixed")

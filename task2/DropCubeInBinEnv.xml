@@ -1,0 +1,51 @@
+<mujoco model="cube in bin scene">
+   <compiler angle="radian" autolimits="true"/>
+
+   <option iterations="3" ls_iterations="5" solver="Newton" tolerance="1e-8" timestep="0.001">
+     <flag eulerdamp="disable"/>
+   </option>
+
+  <!-- Assets -->
+  <include file="simpleTable/simpleTable_asset.xml"/>
+  <include file="panda/mjcf/panda_asset.xml"/>
+  <include file="bin/bin_asset.xml"/>
+
+  <!-- Scene -->
+  <include file="scene.xml"/> 
+
+  
+  <!-- Scene Objects -->
+  <worldbody>
+    <camera name="fixed" mode="targetbody" target="link0" pos="-1 2.5 2.5" fovy="45"/>
+
+ 
+
+    <!-- Table -->
+    <include file="simpleTable/simpleWoodTable_body.xml"/>
+
+    <!-- Panda Arm -->
+    <body name="panda_arm" pos="0 -0.35 0.76" euler="0 0 1.5708">
+      <include file="panda/mjcf/panda_body.xml"/>
+    </body>
+
+    <!-- Bin -->
+    <body name="bin" pos="-0.35 0 0.765">
+      <include file="bin/bin_body.xml"/>
+    </body>
+
+    <!-- Cube -->
+    <body name="cube" pos="0.35 0 0.785">
+      <freejoint name="cube_free"/>
+      <geom name="cube_geom" type="box" size="0.025 0.025 0.025" rgba="0.55 0.2 0.8 1"/>
+    </body>
+   
+  </worldbody>
+
+  <keyframe>
+    <!-- qpos: panda joints 1–7, finger joints 1–2, then cube_free: x y z qw qx qy qz -->
+    <key name="home" qpos="0 0.392699 0 -1.9635 0 2.35619 0.785398 0.04 0.04 0.35 0 0.785 1 0 0 0"/>
+  </keyframe>
+
+
+ 
+</mujoco>
